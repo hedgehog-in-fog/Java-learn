@@ -31,15 +31,24 @@ public class Phone {
 
 
 	public String phoneCall() {
-		quantityCall ++;
-		if(namCapacityAccum >= diagonal * 4 * quantityCall){
+		quantityCall++;
+		if (namCapacityAccum >= diagonal * 4 * quantityCall) {
 			capacityAccum = namCapacityAccum - diagonal * 4 * quantityCall;
-		}else {
+		} else {
 			throw new IllegalArgumentException("charge phone");
 		}
 
-
 		return "Звонок";
+	}
+
+	public int toCharge(Charging charging) {
+		quantityCall = 0;
+		int actualCharge = charging.toChargingProcess();
+		if (actualCharge < (namCapacityAccum - capacityAccum)) {
+			return capacityAccum = capacityAccum + actualCharge;
+		} else {
+			return capacityAccum = namCapacityAccum;
+		}
 	}
 
 	public int charge() {
