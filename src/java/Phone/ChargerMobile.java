@@ -17,6 +17,4 @@ class ChargerMobile extends Charger {
 	@Override
 	void setBateryCapasity(int bateryCapasity) {}
 
-	@Override
-	public void chargePowerBank() {}
 }

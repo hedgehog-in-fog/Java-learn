@@ -17,6 +17,4 @@ class WirelessCharger extends Charger {
 		return bateryCapasity;
 	}
 
-	@Override
-	public void chargePowerBank() {}
 }

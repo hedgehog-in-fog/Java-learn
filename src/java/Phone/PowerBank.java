@@ -11,6 +11,10 @@ class PowerBank extends Charger {
 		namBaretyCapasity = bateryCapasity;
 	}
 
+	public int getNamBaretyCapasity() {
+		return namBaretyCapasity;
+	}
+
 	@Override
 	int getFactor() {
 		return factor;
