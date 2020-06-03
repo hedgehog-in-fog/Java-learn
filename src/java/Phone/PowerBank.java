@@ -3,6 +3,13 @@ package Phone;
 class PowerBank extends Charger {
 	private static final int factor = 70;
 	private int bateryCapasity;
+	private int namBaretyCapasity;
+
+
+	public PowerBank(int bateryCapasity) {
+		this.bateryCapasity = bateryCapasity;
+		namBaretyCapasity = bateryCapasity;
+	}
 
 	@Override
 	int getFactor() {
@@ -13,9 +20,12 @@ class PowerBank extends Charger {
 	public int getBateryCapasity() {
 		return bateryCapasity;
 	}
-
-	public PowerBank(int bateryCapasity) {
+	@Override
+	public void setBateryCapasity(int bateryCapasity) {
 		this.bateryCapasity = bateryCapasity;
 	}
 
+	public void chargePowerBank(){
+     bateryCapasity = namBaretyCapasity;
+	}
 }

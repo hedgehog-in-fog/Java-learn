@@ -1,5 +1,7 @@
 package Phone;
 
 interface Charging {
-	int toChargingProcess();
+	int toChargingProcess(int quantityCharg);
+
+	void chargePowerBank();
 }

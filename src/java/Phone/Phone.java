@@ -43,12 +43,8 @@ public class Phone {
 
 	public int toCharge(Charging charging) {
 		quantityCall = 0;
-		int actualCharge = charging.toChargingProcess();
-		if (actualCharge < (namCapacityAccum - capacityAccum)) {
-			return capacityAccum = capacityAccum + actualCharge;
-		} else {
-			return capacityAccum = namCapacityAccum;
-		}
+		int actualCharge = charging.toChargingProcess(namCapacityAccum - capacityAccum);
+		return capacityAccum = capacityAccum + actualCharge;
 	}
 
 	public int charge() {

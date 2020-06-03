@@ -7,6 +7,7 @@ public class TestCharger {
 		Charging chargerMobile = new ChargerMobile();
 		Charging wirelessCharger = new WirelessCharger();
 		test1(phone, powerBank);
+		powerBank.chargePowerBank();
 		test2(phone, powerBank);
 		test3(phone, chargerMobile);
 		test4(phone, wirelessCharger);
@@ -21,6 +22,8 @@ public class TestCharger {
 			throw new RuntimeException("test 1: powerBank не заряжает");
 		}
 	}
+
+
 //Зарядки powerBanka меньше, чем требуется
 	public static void  test2(Phone phone, Charging charging){
 		phone.phoneCall();
@@ -32,6 +35,7 @@ public class TestCharger {
 			throw new RuntimeException("test 2: powerBank не заряжает");
 		}
 	}
+
 
 	public static void test3(Phone phone, Charging charging){
 		phone.phoneCall();
