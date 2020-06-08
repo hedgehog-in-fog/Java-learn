@@ -4,7 +4,7 @@ public class TestCar {
 	public static void main(String[] args) {
 		Car volga = new Car();
 		Car nissan = new Car();
-		nissan.model = "vany";
+		nissan.setModel("vany");
 		People lexa = new People("lexa");
 		People dima = new People("dima");
 		test1(volga, nissan, lexa);
@@ -19,18 +19,18 @@ public class TestCar {
 
 
 	public static void test1(Car volga, Car nissan, People lexa) {
-		volga.color = "yellow";
-		volga.model = "L-11";
-		nissan.passenger = lexa;
+		volga.setColor("yellow");
+		volga.setModel("L-11");
+		nissan.setPassenger(lexa);
 		System.out.println(volga.toString());
 		System.out.println(nissan.toString());
 		System.out.println("test 1 - true");
 	}
 
 	public static void test2(People dima) {
-		dima.age = 49;
+		dima.setAge(49);
 		int hk = dima.hashCode();
-		dima.age = 50;
+		dima.setAge(50);
 		if (hk != dima.hashCode()) {
 			System.out.println("test 2 - true");
 		} else {
@@ -80,8 +80,8 @@ public class TestCar {
 
 	public static void test8(Car volga) {
 		Car car = new Car();
-		car.model = volga.model;
-		car.color =volga.color;
+		car.setModel(volga.getModel());
+		car.setColor(volga.getColor());
 		if (volga.equals(car)) {
 			System.out.println("test 8 - true");
 		} else {

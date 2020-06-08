@@ -1,10 +1,42 @@
 package TwoCar;
 
 public class Car {
-	String model;
-	String color;
-	People driver;
-	People passenger;
+	private String model;
+	private String color;
+	private People driver;
+	private People passenger;
+
+	public String getModel() {
+		return model;
+	}
+
+	public String getColor() {
+		return color;
+	}
+
+	public People getDriver() {
+		return driver;
+	}
+
+	public People getPassenger() {
+		return passenger;
+	}
+
+	public void setModel(String model) {
+		this.model = model;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
+	}
+
+	public void setDriver(People driver) {
+		this.driver = driver;
+	}
+
+	public void setPassenger(People passenger) {
+		this.passenger = passenger;
+	}
 
 	@Override
 	public int hashCode() {

@@ -1,11 +1,23 @@
 package TwoCar;
 
 public class People {
-	String name;
-	int age;
+	private String name;
+	private int age;
 
 	public People(String name) {
 		this.name = name;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
 	}
 
 	@Override
@@ -21,7 +33,7 @@ public class People {
 	@Override
 	public int hashCode() {
 		int nam = name != null ? name.hashCode() : 0;
-		return (nam + age) * 31;
+		return (nam >> age/10) * 31;
 	}
 
 	@Override
