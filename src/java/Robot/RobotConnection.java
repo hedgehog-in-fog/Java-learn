@@ -1,7 +1,7 @@
 package Robot;
 
-public interface RobotConnection extends AutoCloseable {
+public interface RobotConnection  extends AutoCloseable {
 	void moveRobotTo( int x, int y);
 	@Override
-	void close();
+	void close() throws Exception;
 }

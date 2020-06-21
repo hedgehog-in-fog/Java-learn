@@ -6,6 +6,5 @@ public abstract class RobotConnnectionCl implements RobotConnection{
 
 	@Override
 	public void close() {
-
 	}
 }
