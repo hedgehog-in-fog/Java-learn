@@ -8,7 +8,7 @@ public class SuccessfulRobotConnectionCloseNo extends RobotConnnectionCl {
 	}
 
 	@Override
-	public void close() throws Exception {
+	public void close() throws RobotConnectionException {
 		throw new RobotConnectionException("закрытие хорошего соединения");
 	}
 }

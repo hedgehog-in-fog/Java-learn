@@ -10,9 +10,9 @@ public class TestRobotConnection {
 		RobotConnectionManager robotConnectionManagerNo = new RobotConnectionManagerNo();
 		RobotConnectionManager robotConnectionManagerNoOkNo = new RobotConnectionManagerNoOkNo();
 		RobotConnectionManager robotConnectionManagerNoNoOkCloseNo = new RobotConnectionManagerNoNoOkCloseNo();
-		moveRobot(robotConnectionManager, 8, 5);
-		robot.robotTo();
-		System.out.println(robot.getX() + " " + robot.getY());
+//		moveRobot(robotConnectionManager, 8, 5);
+//		robot.robotTo();
+//		System.out.println(robot.getX() + " " + robot.getY());
 	}
 
 	public static void moveRobot(RobotConnectionManager robotConnectionManager, int toX, int toY) {
@@ -28,6 +28,8 @@ public class TestRobotConnection {
 				if (noConnect && i == 3) {
 					throw new RobotConnectionException("не удалось установить соединение", e);
 				}
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
 		}
 	}
