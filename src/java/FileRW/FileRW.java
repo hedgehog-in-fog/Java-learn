@@ -1,5 +1,6 @@
 package FileRW;
 import java.io.*;
+import java.math.BigInteger;
 
 public class FileRW {
 	static File file = new File("C:\\Users\\stalnoy\\Desktop\\fileRW.txt");
@@ -15,7 +16,16 @@ public class FileRW {
 
 	private static void filezRW() throws IOException {
 
+		try(BufferedReader bufferedReader = new BufferedReader(new FileReader(file))) {
+			int i;
+			while ((i = bufferedReader.read()) != Integer.parseInt(" ")){
+				sum += i;
+				bufferedReader.mark(11);
+			}
+		}
+
 		try (FileReader fr = new FileReader(file)) {
+
 			char[] buf = new char[23];
 			StringBuilder stringBuilder = new StringBuilder();
 			fr.read(buf);
@@ -24,7 +34,7 @@ public class FileRW {
 			int r2 = Integer.parseInt(stringBuilder.substring(0, stringBuilder.indexOf(" ")));
 			sum = r1 + r2;
 		} catch (Exception e) {
-			System.out.println("Введите 2 числа через пробел");
+
 			e.printStackTrace();
 		}
 
