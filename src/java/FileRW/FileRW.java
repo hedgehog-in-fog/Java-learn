@@ -5,22 +5,23 @@ import java.util.Scanner;
 
 public class FileRW {
 	static File file = new File("C:\\Users\\stalnoy\\Desktop\\fileRW.txt");
-	static int sum = 0;
 
 	public static void main(String[] args) throws IOException {
-
-		FileWriter fw = new FileWriter(file);
-		fw.write("4 12 1 78 -14");
-		fw.close();
+		test1(" 45 68 99");
 		filezRW();
+	}
+	public static void test1(String s) throws IOException {
+		FileWriter fw = new FileWriter(file);
+		fw.write(s);
+		fw.close();
 	}
 
 	private static void filezRW() {
+		int sum = 0;
 		try (Scanner scanner = new Scanner(new FileReader(file))) {
 			while (scanner.hasNextInt()) {
 				sum += scanner.nextInt();
 			}
-			System.out.println(sum);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
