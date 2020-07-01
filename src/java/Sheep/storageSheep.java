@@ -3,16 +3,7 @@ package Sheep;
 import java.io.*;
 
 public class storageSheep {
-	public static void main(String[] args) {
-		File file = new File("C:\\Users\\stalnoy\\Desktop\\sheep.txt");
-		Sheep sheep = new Sheep("Бяша", "black");
-		sheep.setAge(2);
-		sheep.setWeight(31);
-		sheep.notHungry = true;
-		saving(sheep, file);
-		sheep.setAge(3);
-		System.out.println(receiving(file));
-	}
+
 
 	static void saving(Sheep sheep, File file) {
 		try (ObjectOutputStream oOS = new ObjectOutputStream(new FileOutputStream(file))) {
@@ -24,15 +15,14 @@ public class storageSheep {
 	}
 
 	static Sheep receiving(File file) {
+		Sheep sheep = null;
 		try (ObjectInputStream oIS = new ObjectInputStream(new FileInputStream(file))) {
-			Sheep sheep = (Sheep) oIS.readObject();
-			return sheep;
+			sheep = (Sheep) oIS.readObject();
 		} catch (IOException e) {
 			e.printStackTrace();
-			return null;
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
-			return null;
 		}
+		return sheep;
 	}
 }
