@@ -7,10 +7,10 @@ import java.util.*;
 
 public class CollectionCheep {
 	static Sheep sheep1 = new Sheep("a", "black", new Wool("curly"));
-	static Sheep sheep2 = new Sheep("b", "black",  new Wool("curly"));
-	static Sheep sheep3 = new Sheep("c", "black",  new Wool("curly"));
-	static Sheep sheep4 = new Sheep("d", "black",  new Wool("curly"));
-	static Sheep sheep5 = new Sheep("i", "black",  new Wool("smooth"));
+	static Sheep sheep2 = new Sheep("b", "black", new Wool("curly"));
+	static Sheep sheep3 = new Sheep("c", "black", new Wool("curly"));
+	static Sheep sheep4 = new Sheep("d", "black", new Wool("curly"));
+	static Sheep sheep5 = new Sheep("i", "black", new Wool("smooth"));
 
 
 	public static void main(String[] args) throws IOException, ClassNotFoundException, CloneNotSupportedException {
@@ -19,19 +19,19 @@ public class CollectionCheep {
 		Set set = setSheep(arrayList);
 		Map map = mapSheep(arrayList);
 //test1 arrayList
-		if (arrayList.size() == 10){
+		if (arrayList.size() == 10) {
 			System.out.println("test1 - true");
 		}
 //test2 hashSet
-		if(set.containsAll(arrayList) && set.size() == 5){
+		if (set.containsAll(arrayList) && set.size() == 5) {
 			System.out.println("test2 - true");
 		}
 //test3 hashMap
-		if(map.get(sheep1).equals(3) &&
-		map.get(sheep2).equals(1) &&
-		map.get(sheep3).equals(1) &&
-		map.get(sheep4).equals(1) &&
-		map.get(sheep5).equals(4)){
+		if (map.get(sheep1).equals(3) &&
+				map.get(sheep2).equals(1) &&
+				map.get(sheep3).equals(1) &&
+				map.get(sheep4).equals(1) &&
+				map.get(sheep5).equals(4)) {
 			System.out.println("test3 - true");
 		}
 	}
@@ -39,14 +39,14 @@ public class CollectionCheep {
 	static void listSheep(List arrayList) throws IOException, ClassNotFoundException, CloneNotSupportedException {
 		arrayList.add(sheep1);
 		arrayList.add(sheep1.clone());
-		arrayList.add(sheep1.cloneВeep());
+		arrayList.add(sheep1.cloneDeep());
 		arrayList.add(sheep2);
 		arrayList.add(sheep3);
 		arrayList.add(sheep4);
 		arrayList.add(sheep5);
 		arrayList.add(sheep5.clone());
 		arrayList.add(sheep5.clone());
-		arrayList.add(sheep5.cloneВeep());
+		arrayList.add(sheep5.cloneDeep());
 
 
 	}
@@ -61,11 +61,22 @@ public class CollectionCheep {
 	}
 
 	static Map mapSheep(List list) {
+
+		Sheep sheep;
 		Map<Sheep, Integer> hashMap = new HashMap<Sheep, Integer>();
-		for (int i = 0; i < list.size(); i++){
-			Sheep sheep = (Sheep) list.get(i);
-			if(!hashMap.equals(sheep)){
-				hashMap.put(sheep, Collections.frequency(list,sheep));
+
+		for (int i = 0; i < list.size(); i++) {
+			sheep = (Sheep) list.get(i);
+			int val = 1;
+			if (!hashMap.containsKey(sheep)) {
+				int m = i + 1;
+				while (m < list.size()) {
+					if (sheep.equals(list.get(m))) {
+						val = val + 1;
+					}
+					m++;
+				}
+				hashMap.put(sheep, val);
 			}
 		}
 		System.out.println(hashMap);

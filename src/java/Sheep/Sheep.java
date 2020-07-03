@@ -99,7 +99,7 @@ public class Sheep implements Serializable, Cloneable {
 	}
 
 
-	public Sheep cloneВeep() throws CloneNotSupportedException {
+	public Sheep cloneDeep() throws CloneNotSupportedException {
 		Sheep sheep = (Sheep) super.clone();
 		Wool wool = (Wool) this.getWool().clone();
 		sheep.setWool(wool);
