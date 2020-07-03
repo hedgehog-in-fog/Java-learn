@@ -16,9 +16,9 @@ public class TestSheep {
 	}
 
 	static void test1(File file, Sheep sheep) throws IOException, ClassNotFoundException {
-		storageSheep.saving(sheep,file);
+		StorageSheep.saving(sheep,file);
 		sheep.notHungry = false;
-		if(storageSheep.receiving(file).equals(sheep)){
+		if(StorageSheep.receiving(file).equals(sheep)){
 			System.out.println("test 1 - true");
 		}
 
@@ -27,7 +27,7 @@ public class TestSheep {
 	static void test2(File file) throws IOException, ClassNotFoundException {
 		try {
 			file.delete();
-			storageSheep.receiving(file);
+			StorageSheep.receiving(file);
 		}catch (FileNotFoundException e){
 			System.out.println("test 2 - true");
 			e.printStackTrace();

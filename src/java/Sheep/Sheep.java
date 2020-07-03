@@ -72,4 +72,5 @@ public class Sheep implements Serializable{
 		result = 31 * result + weight;
 		return result;
 	}
+
 }
