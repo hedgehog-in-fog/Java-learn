@@ -6,14 +6,14 @@ import java.io.*;
 import java.util.*;
 
 public class CollectionCheep {
-	static Sheep sheep1 = new Sheep("a", "black");
-	static Sheep sheep2 = new Sheep("b", "black");
-	static Sheep sheep3 = new Sheep("c", "black");
-	static Sheep sheep4 = new Sheep("d", "black");
-	static Sheep sheep5 = new Sheep("i", "black");
-	static File file = new File("C:\\Users\\stalnoy\\Desktop\\sheepCollection.txt");
+	static Sheep sheep1 = new Sheep("a", "black", new Wool("curly"));
+	static Sheep sheep2 = new Sheep("b", "black",  new Wool("curly"));
+	static Sheep sheep3 = new Sheep("c", "black",  new Wool("curly"));
+	static Sheep sheep4 = new Sheep("d", "black",  new Wool("curly"));
+	static Sheep sheep5 = new Sheep("i", "black",  new Wool("smooth"));
 
-	public static void main(String[] args) throws IOException, ClassNotFoundException {
+
+	public static void main(String[] args) throws IOException, ClassNotFoundException, CloneNotSupportedException {
 		List<Sheep> arrayList = new ArrayList();
 		listSheep(arrayList);
 		Set set = setSheep(arrayList);
@@ -36,38 +36,39 @@ public class CollectionCheep {
 		}
 	}
 
-	static void listSheep(List arrayList) throws IOException, ClassNotFoundException {
-		StorageSheep.saving(sheep1, file);
+	static void listSheep(List arrayList) throws IOException, ClassNotFoundException, CloneNotSupportedException {
 		arrayList.add(sheep1);
-		arrayList.add(StorageSheep.receiving(file));
-		arrayList.add(StorageSheep.receiving(file));
+		arrayList.add(sheep1.clone());
+		arrayList.add(sheep1.cloneВeep());
 		arrayList.add(sheep2);
 		arrayList.add(sheep3);
 		arrayList.add(sheep4);
 		arrayList.add(sheep5);
-		StorageSheep.saving(sheep5, file);
-		arrayList.add(StorageSheep.receiving(file));
-		arrayList.add(StorageSheep.receiving(file));
-		arrayList.add(StorageSheep.receiving(file));
+		arrayList.add(sheep5.clone());
+		arrayList.add(sheep5.clone());
+		arrayList.add(sheep5.cloneВeep());
+
 
 	}
 
 	static Set setSheep(List arrayList) {
 		Set<Sheep> hashSet = new HashSet(arrayList);
-//		Iterator<Sheep> itr = hashSet.iterator();
-//		while (itr.hasNext()) {
-//			System.out.println(itr.next().toString());
-//		}
+		Iterator<Sheep> itr = hashSet.iterator();
+		while (itr.hasNext()) {
+			System.out.println(itr.next().toString());
+		}
 		return hashSet;
 	}
 
 	static Map mapSheep(List list) {
 		Map<Sheep, Integer> hashMap = new HashMap<Sheep, Integer>();
-		hashMap.put(sheep1, Collections.frequency(list, sheep1));
-		hashMap.put(sheep2, Collections.frequency(list, sheep2));
-		hashMap.put(sheep3, Collections.frequency(list, sheep3));
-		hashMap.put(sheep4, Collections.frequency(list, sheep4));
-		hashMap.put(sheep5, Collections.frequency(list, sheep5));
+		for (int i = 0; i < list.size(); i++){
+			Sheep sheep = (Sheep) list.get(i);
+			if(!hashMap.equals(sheep)){
+				hashMap.put(sheep, Collections.frequency(list,sheep));
+			}
+		}
+		System.out.println(hashMap);
 		return hashMap;
 	}
 }
