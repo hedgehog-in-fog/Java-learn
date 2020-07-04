@@ -64,19 +64,12 @@ public class CollectionCheep {
 
 		Sheep sheep;
 		Map<Sheep, Integer> hashMap = new HashMap<Sheep, Integer>();
-
 		for (int i = 0; i < list.size(); i++) {
 			sheep = (Sheep) list.get(i);
-			int val = 1;
-			if (!hashMap.containsKey(sheep)) {
-				int m = i + 1;
-				while (m < list.size()) {
-					if (sheep.equals(list.get(m))) {
-						val = val + 1;
-					}
-					m++;
-				}
-				hashMap.put(sheep, val);
+			if (hashMap.containsKey(sheep)) {
+				hashMap.replace(sheep, hashMap.get(sheep) + 1);
+			}else {
+				hashMap.put(sheep, 1);
 			}
 		}
 		System.out.println(hashMap);
