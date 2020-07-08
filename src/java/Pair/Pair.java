@@ -32,7 +32,7 @@ public class Pair<T, V> {
 		if (o == null) return false;
 		if (this == o) return true;
 		if (this.getClass() != o.getClass()) return false;
-		Pair pair = (Pair) o;
+		Pair<?, ?> pair = (Pair<?, ?>) o;
 		if (val1 != null ? !val1.equals(pair.val1) : pair.val1 == null) return false;
 		return (val2 != null ? val2.equals(pair.val2) : pair.val2 == null);
 
@@ -54,7 +54,7 @@ public class Pair<T, V> {
 	public static void main(String[] args) {
 		Sheep sheep = new Sheep("fom", "black");
 		Pair p = creatorOfPairs("String", sheep);
-		if (p.equals(new Pair("String", sheep))){
+		if (p.equals(new Pair("String", sheep))) {
 			System.out.println("test1-true");
 		}
 	}
