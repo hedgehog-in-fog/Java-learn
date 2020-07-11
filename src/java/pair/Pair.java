@@ -1,4 +1,4 @@
-package Pair;
+package pair;
 
 import Sheep.Sheep;
 
@@ -40,13 +40,13 @@ public class Pair<T, V> {
 
 	@Override
 	public String toString() {
-		return "Pair{" +
+		return "pair{" +
 				"val1=" + val1 +
 				", val2=" + val2 +
 				'}';
 	}
 
-	static <T, V> Pair<T, V> creatorOfPairs(T val1, V val2) {
+	public static <T, V> Pair<T, V> creatorOfPairs(T val1, V val2) {
 		Pair<T, V> pair = new Pair<>(val1, val2);
 		return pair;
 	}

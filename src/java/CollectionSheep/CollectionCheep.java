@@ -47,8 +47,6 @@ public class CollectionCheep {
 		arrayList.add(sheep5.clone());
 		arrayList.add(sheep5.clone());
 		arrayList.add(sheep5.cloneDeep());
-
-
 	}
 
 	static Set setSheep(List arrayList) {
